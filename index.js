@@ -101,7 +101,11 @@ module.exports = function autoShit(mod) {
 	});
 	
 	mod.hook('C_START_SKILL', 'raw', () => {checkShit();});
+	mod.hook('C_START_TARGETED_SKILL', 'raw', () => {checkShit();});
 	mod.hook('C_START_INSTANCE_SKILL', 'raw', () => {checkShit();});
+	mod.hook('C_START_INSTANCE_SKILL_EX', 'raw', () => {checkShit();});
+	mod.hook('C_START_COMBO_INSTANT_SKILL', 'raw', () => {checkShit();});
+	mod.hook('C_PRESS_SKILL', 'raw', () => {checkShit();});
 	
 	function checkShit() {
 		if (data.inbuff) {
@@ -116,7 +120,7 @@ module.exports = function autoShit(mod) {
 	}
 	
 	function startShit() {
-		if (mod.game.me.inBattleground) return;
+		if (!data.inbuff || mod.game.me.inBattleground) return;
 		let info = config.list[data.job];
 		if (info) {
 			let now = Date.now();
@@ -182,13 +186,7 @@ module.exports = function autoShit(mod) {
 						rootbeer: 'inbuff'
 					},
 					1: {
-						buffid: 200701, //200701, 200731
-						active: 'nextskill',
-						brooch: 'once',
-						rootbeer: 'inbuff'
-					},
-					2: {
-						buffid: 300850, //300850, 300805, 301801
+						buffid: 200701,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
@@ -205,20 +203,8 @@ module.exports = function autoShit(mod) {
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
-					5: {
-						buffid: 602107, //602107, 602108, 602101
-						active: 'nextskill',
-						brooch: 'once',
-						rootbeer: 'inbuff'
-					},
 					8: {
-						buffid: 10151010, //10151010, 10151013
-						active: 'nextskill',
-						brooch: 'once',
-						rootbeer: 'inbuff'
-					},
-					9: {
-						buffid: 10152342, //10152342, 10152340, 10152345
+						buffid: 10151010,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
@@ -230,7 +216,7 @@ module.exports = function autoShit(mod) {
 						rootbeer: 'inbuff'
 					},
 					11: {
-						buffid: 10154481, //10154481, 10154482, 10154483, 10154480
+						buffid: 10154480,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'

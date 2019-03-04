@@ -1,11 +1,15 @@
 {
 	"files": {
-		"index.js": "993448afe219c0a8d321c73259efbc499642104379322fd8953f416b6f8d171c"
+		"index.js": "1ff4d6e70d4df7e25dae3980028c871bb74393dba431334f43bbb65d5d7fca8d"
 	},
 	"defs": {
 		"C_PLAYER_LOCATION": 5,
+		"C_PRESS_SKILL": "raw",
+		"C_START_COMBO_INSTANT_SKILL": "raw",
 		"C_START_INSTANCE_SKILL": "raw",
+		"C_START_INSTANCE_SKILL_EX": "raw",
 		"C_START_SKILL": "raw",
+		"C_START_TARGETED_SKILL": "raw",
 		"C_USE_ITEM": 3,
 		"S_ABNORMALITY_BEGIN": 3,
 		"S_ABNORMALITY_END": 1,
