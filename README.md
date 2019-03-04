@@ -17,4 +17,5 @@ Auto use brooch and rootbeer when main skill or buff pop
         },
 }
 ```
-*for brooch it will auto detect by system**</br>
+**for brooch it will auto detect by system**</br>
+**now only problem in slayer, archer, gunner**</br>
