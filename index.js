@@ -6,6 +6,37 @@ module.exports = function autoShit(mod) {
 	let config = getConfig();
 	mod.game.initialize(['me']);
 	
+	cmd.add('shit', arg1 => {
+		if(arg1 && arg1.length > 0) arg1 = arg1.toLowerCase();
+		switch (arg1) {
+			case 'on':
+				let info = config.list[data.job];
+				if (info) {
+					config.enabled = true;
+					cmd.message(`Auto-Shit: enabled.`);
+				} else {
+					cmd.message(`Auto-Shit: you not have any shit to enabled.`);
+				}
+				break;
+			case 'off':
+				if (info) {
+					config.enabled = false;
+					cmd.message(`Auto-Shit: disabled.`);
+				} else {
+					cmd.message(`Auto-Shit: you not have any shit to disabled.`);
+				}
+				break;
+			case 'reload':
+			case 'load':
+				config = getConfig();
+				cmd.message(`Auto-Shit: config has been reloaded.`);
+				break;
+			default:
+				cmd.message(`Auto-Shit: wrong commands :v`);
+				break;
+		}
+	});
+	
 	mod.hook('S_LOGIN', 12, e => {
 		data.gameId = e.gameId;
 		data.job = (e.templateId - 10101) % 100;
