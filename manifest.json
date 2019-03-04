@@ -1,0 +1,18 @@
+{
+	"files": {
+		"index.js": "0dce9a101d397c4b595bf0290446575bb42fb41625d9221428c7ad2b46855d17"
+	},
+	"defs": {
+		"C_PLAYER_LOCATION": 5,
+		"C_START_INSTANCE_SKILL": "raw",
+		"C_START_SKILL": "raw",
+		"C_USE_ITEM": 3,
+		"S_ABNORMALITY_BEGIN": 3,
+		"S_ABNORMALITY_END": 1,
+		"S_INVEN": [17,18],
+		"S_LOGIN": 12,
+		"S_RETURN_TO_LOBBY": "raw",
+		"S_SPAWN_ME": 3,
+		"S_START_COOLTIME_ITEM": 1
+	}
+}

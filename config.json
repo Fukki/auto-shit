@@ -1,0 +1,38 @@
+{
+    "enabled": true,
+    "rootbeer": [
+        80081
+    ],
+    "list": {
+        "0": {
+            "buffid": 100811,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "3": {
+            "buffid": 401705,
+            "active": "instance",
+            "brooch": "once",
+            "rootbeer": "once"
+        },
+        "4": {
+            "buffid": 500150,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "10": {
+            "buffid": 10153210,
+            "active": "instance",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "12": {
+            "buffid": 10155130,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        }
+    }
+}
