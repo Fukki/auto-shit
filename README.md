@@ -17,4 +17,5 @@ QoL for all class
         },
 }
 ```
-**Where is brooch setting: it's auto detect by system**
+**Where is brooch setting: it's auto detect by system**</br>
+**now only 5 class in config because im lazy**</br>
