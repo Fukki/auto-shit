@@ -17,5 +17,4 @@ Auto use brooch and rootbeer when main skill or buff pop
         },
 }
 ```
-**Where is brooch setting: it's auto detect by system**</br>
-**now only 5 class in config because im lazy**</br>
+*for brooch it will auto detect by system**</br>
