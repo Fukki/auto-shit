@@ -10,6 +10,18 @@
             "brooch": "once",
             "rootbeer": "inbuff"
         },
+        "1": {
+            "buffid": 200701,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "2": {
+            "buffid": 300850,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
         "3": {
             "buffid": 401705,
             "active": "instance",
@@ -22,9 +34,33 @@
             "brooch": "once",
             "rootbeer": "inbuff"
         },
+        "5": {
+            "buffid": 602107,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "8": {
+            "buffid": 10151010,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "9": {
+            "buffid": 10152342,
+            "active": "nextskill",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
         "10": {
             "buffid": 10153210,
             "active": "instance",
+            "brooch": "once",
+            "rootbeer": "inbuff"
+        },
+        "11": {
+            "buffid": 10154481,
+            "active": "nextskill",
             "brooch": "once",
             "rootbeer": "inbuff"
         },

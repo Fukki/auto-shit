@@ -8,9 +8,9 @@ module.exports = function autoShit(mod) {
 	
 	cmd.add('shit', arg1 => {
 		if(arg1 && arg1.length > 0) arg1 = arg1.toLowerCase();
+		let info = config.list[data.job];
 		switch (arg1) {
 			case 'on':
-				let info = config.list[data.job];
 				if (info) {
 					config.enabled = true;
 					cmd.message(`Auto-Shit: enabled.`);
@@ -19,7 +19,6 @@ module.exports = function autoShit(mod) {
 				}
 				break;
 			case 'off':
-				let info = config.list[data.job];
 				if (info) {
 					config.enabled = false;
 					cmd.message(`Auto-Shit: disabled.`);
@@ -182,6 +181,18 @@ module.exports = function autoShit(mod) {
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
+					1: {
+						buffid: 200701, //200701, 200731
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
+					2: {
+						buffid: 300850, //300850, 300805, 301801
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
 					3: {
 						buffid: 401705,
 						active: 'instance',
@@ -194,9 +205,33 @@ module.exports = function autoShit(mod) {
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
+					5: {
+						buffid: 602107, //602107, 602108, 602101
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
+					8: {
+						buffid: 10151010, //10151010, 10151013
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
+					9: {
+						buffid: 10152342, //10152342, 10152340, 10152345
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
 					10: {
 						buffid: 10153210,
 						active: 'instance',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
+					11: {
+						buffid: 10154481, //10154481, 10154482, 10154483, 10154480
+						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
