@@ -1,12 +1,12 @@
 {
 	"disableAutoUpdate": false,
-	"name": "nextgenShit",
+	"name": "Auto Shit",
 	"author": "Fukki",
 	"description": "QoL for all class.",
 	"version": "Kappa :v",
 	"options": {
-		"niceName": "nextgenShit"
+		"niceName": "Auto Shit"
 	},
-	"servers": ["https://raw.githubusercontent.com/Fukki/nextgenShit/master/"],
-	"supportUrl": "https://github.com/Fukki/nextgenShit/issues/"
+	"servers": ["https://raw.githubusercontent.com/Fukki/auto-shit/master/"],
+	"supportUrl": "https://github.com/Fukki/auto-shit/issues/"
 }
