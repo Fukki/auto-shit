@@ -63,8 +63,8 @@ module.exports = function autoShit(mod) {
 	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
 		if (!data.invUpdate) {
 			data.invUpdate = true;
-            data.brooch = e.items.find(item => item.slot === 20);
-            data.rootbeer = e.items.find(item => config.rootbeer.includes(item.id));
+			data.brooch = e.items.find(item => item.slot === 20);
+			data.rootbeer = e.items.find(item => config.rootbeer.includes(item.id));
 			data.invUpdate = false;
 		}
 	});
