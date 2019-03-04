@@ -19,6 +19,7 @@ module.exports = function autoShit(mod) {
 				}
 				break;
 			case 'off':
+				let info = config.list[data.job];
 				if (info) {
 					config.enabled = false;
 					cmd.message(`Auto-Shit: disabled.`);
