@@ -6,8 +6,10 @@ module.exports = function autoShit(mod) {
 	let config = getConfig();
 	mod.game.initialize(['me']);
 	
-	cmd.add('shit', arg1 => {
+	cmd.add('shit', (arg1, arg2, arg3) => {
 		if(arg1 && arg1.length > 0) arg1 = arg1.toLowerCase();
+		if(arg2 && arg2.length > 0) arg2 = arg2.toLowerCase();
+		if(arg3 && arg3.length > 0) arg3 = arg3.toLowerCase();
 		let info = config.list[data.job];
 		switch (arg1) {
 			case 'on':
@@ -26,11 +28,36 @@ module.exports = function autoShit(mod) {
 					cmd.message(`Auto-Shit: you not have any shit to disabled.`);
 				}
 				break;
+			case 'set':
+				let arg3 = arg3 ? arg3.match(/#(\d*)@/) : 0;
+				arg3 = arg3 ? Number(arg3[1]) : 0);
+				if (arg3 <= 0) {
+					msg(`Auto-Shit: please put item link.`);
+					break;
+				}
+				switch (arg2) {
+					case 'b':
+					case 'brooch':
+						msg(`Auto-Shit: brooch id set to ${arg3}.`);
+						config.list[data.job].broochinfo = arg3;
+						jsonSave('config.json', config);
+						break;
+					case 'r':
+					case 'root':
+					case 'beer':
+					case 'rootbeer':
+						msg(`Auto-Shit: rootbeer id set to ${arg3}.`);
+						config.list[data.job].rootbeerinfo = arg3;
+						jsonSave('config.json', config);
+						break;
+				}
+				break;
 			case 'reload':
 			case 'load':
 				config = getConfig();
 				cmd.message(`Auto-Shit: config has been reloaded.`);
 				break;
+			case 'info':
 			case 'check':
 			case 'debug':
 				cmd.message(`Brooch Id: ${data.brooch.id || data.broochinfo.id}`);
