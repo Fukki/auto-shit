@@ -138,7 +138,7 @@ module.exports = function autoShit(mod) {
 		let info = config.list[data.job];
 		if (info) {
 			let now = Date.now();
-			if (data.usedBrooch && data.brooch && now > itemCd.brooch)
+			if (data.usedBrooch && (data.brooch || data.broochinfo) && now > itemCd.brooch)
 				switch (info.brooch.toLowerCase()) {
 					case 'once':
 						useItem(data.brooch || data.broochinfo);
@@ -148,7 +148,7 @@ module.exports = function autoShit(mod) {
 						useItem(data.brooch || data.broochinfo);
 						break;
 				}
-			if (data.usedRootbeer && data.rootbeer && now > itemCd.rootbeer)
+			if (data.usedRootbeer && (data.rootbeer || data.rootbeerinfo) && now > itemCd.rootbeer)
 				switch (info.rootbeer.toLowerCase()) {
 					case 'once':
 						useItem(data.rootbeer || data.rootbeerinfo);
