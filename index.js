@@ -15,22 +15,22 @@ module.exports = function autoShit(mod) {
 			case 'on':
 				if (info) {
 					config.enabled = true;
-					cmd.message(`Auto-Shit: enabled.`);
+					msg(`Auto-Shit: enabled.`);
 				} else {
-					cmd.message(`Auto-Shit: you not have any shit to enabled.`);
+					msg(`Auto-Shit: you not have any shit to enabled.`);
 				}
 				break;
 			case 'off':
 				if (info) {
 					config.enabled = false;
-					cmd.message(`Auto-Shit: disabled.`);
+					msg(`Auto-Shit: disabled.`);
 				} else {
-					cmd.message(`Auto-Shit: you not have any shit to disabled.`);
+					msg(`Auto-Shit: you not have any shit to disabled.`);
 				}
 				break;
 			case 'set':
-				arg3 = arg3 ? arg3.match(/#(\d*)@/) : 0;
-				arg3 = arg3 ? Number(arg3[1]) : 0;
+				arg3 = arg3.match(/#(\d*)@/) || 0;
+				arg3 = Number(arg3[1]) || 0;
 				if (arg3 <= 0) {
 					msg(`Auto-Shit: please put item link.`);
 					break;
@@ -40,6 +40,7 @@ module.exports = function autoShit(mod) {
 					case 'brooch':
 						msg(`Auto-Shit: brooch id set to ${arg3}.`);
 						config.list[data.job].broochinfo = arg3;
+						data.broochinfo = {id: arg3}
 						jsonSave('config.json', config);
 						break;
 					case 'r':
@@ -48,6 +49,7 @@ module.exports = function autoShit(mod) {
 					case 'rootbeer':
 						msg(`Auto-Shit: rootbeer id set to ${arg3}.`);
 						config.list[data.job].rootbeerinfo = arg3;
+						data.rootbeerinfo = {id: arg3}
 						jsonSave('config.json', config);
 						break;
 				}
@@ -55,16 +57,16 @@ module.exports = function autoShit(mod) {
 			case 'reload':
 			case 'load':
 				config = getConfig();
-				cmd.message(`Auto-Shit: config has been reloaded.`);
+				msg(`Auto-Shit: config has been reloaded.`);
 				break;
 			case 'info':
 			case 'check':
 			case 'debug':
-				cmd.message(`Brooch Id: ${data.brooch.id || data.broochinfo.id}`);
-				cmd.message(`Rootbeer Id: ${data.rootbeer || data.rootbeerinfo}`);
+				msg(`Brooch Id: ${data.brooch.id || data.broochinfo.id}`);
+				msg(`Rootbeer Id: ${data.rootbeer || data.rootbeerinfo}`);
 				break;
 			default:
-				cmd.message(`Auto-Shit: wrong commands :v`);
+				msg(`Auto-Shit: wrong commands :v`);
 				break;
 		}
 	});
@@ -316,4 +318,6 @@ module.exports = function autoShit(mod) {
 	}
 	
 	function jsonSave(name, data) {fs.writeFile(path.join(__dirname, name), JSON.stringify(data, null, 4), err => {});}
+	
+	function msg(s) {cmd.message(s);}
 }
