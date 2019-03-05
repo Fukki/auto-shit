@@ -1,5 +1,8 @@
 # nextgenShit
 Auto use brooch and rootbeer when main skill or buff pop
+# Commands
+- shit set brooch [item link]   //set brooch id *only that class
+- shit set rootbeer [item link]   //set rootbeer id *only that class
 
 # Config.json
 ```
