@@ -10,8 +10,8 @@ Auto use brooch and rootbeer when main skill or buff pop
     ],
     "list": {
         "0": {                      #job or class id
-            "rootbeerinfo": 80081,    #set your rootbeer id *if = 0 is auto detect
-            "broochinfo": 0,          #set your brooch id *if = 0 is auto detect
+            "rootbeerinfo": 80081,  #set your rootbeer id *if = 0 is auto detect
+            "broochinfo": 0,        #set your brooch id *if = 0 is auto detect
             "buffid": 100811,       #buff for active
             "active": "nextskill",  #active type instance = after buff pop, nextskill = after use next skill
             "brooch": "once",       #once = active only 1 time when buff pop
@@ -20,4 +20,6 @@ Auto use brooch and rootbeer when main skill or buff pop
 }
 ```
 **for brooch it will auto detect by system**</br>
-**now only problem in slayer, archer, gunner**</br>
+**sometimes auto detect has problem**</br>
+**just put item id by your self**</br>
+**you can find item id from: https://teralore.com**</br>
