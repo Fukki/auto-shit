@@ -116,8 +116,8 @@ module.exports = function autoShit(mod) {
 	
 	mod.hook('S_START_COOLTIME_ITEM', 1, {order: Number.NEGATIVE_INFINITY}, e => {
  		if(!config.enabled) return;
- 		if(data.brooch && e.item === data.brooch.id) itemCd.brooch = Date.now() + e.cooldown * 1000;
- 		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
+ 		if((data.brooch && e.item === data.brooch.id) || (data.broochinfo && e.item === data.broochinfo.id)) itemCd.brooch = Date.now() + e.cooldown * 1000;
+ 		else if((data.rootbeer && e.item === data.rootbeer.id) || (data.rootbeerinfo && e.item === data.rootbeerinfo.id)) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
 	
 	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
