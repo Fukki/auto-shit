@@ -29,7 +29,7 @@ module.exports = function autoShit(mod) {
 				}
 				break;
 			case 'set':
-				let arg3 = arg3 ? arg3.match(/#(\d*)@/) : 0;
+				arg3 = arg3 ? arg3.match(/#(\d*)@/) : 0;
 				arg3 = arg3 ? Number(arg3[1]) : 0;
 				if (arg3 <= 0) {
 					msg(`Auto-Shit: please put item link.`);
