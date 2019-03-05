@@ -194,48 +194,88 @@ module.exports = function autoShit(mod) {
 				rootbeer: [80081],
 				list: {
 					0: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 100811,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
 					1: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 200701,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
+					2: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
+						buffid: 300805, //300850, 300805, 301801
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
 					3: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 401705,
 						active: 'instance',
 						brooch: 'once',
 						rootbeer: 'once'
 					},
 					4: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 500150,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
+					5: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
+						buffid: 602107, //602107, 602108, 602101
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
 					8: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 10151010,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
+					9: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
+						buffid: 10152342, //10152342, 10152340, 10152345
+						active: 'nextskill',
+						brooch: 'once',
+						rootbeer: 'inbuff'
+					},
 					10: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 10153210,
 						active: 'instance',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
 					11: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 10154480,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
 					},
 					12: {
+						rootbeerinfo: 80081,
+						broochinfo: 0,
 						buffid: 10155130,
 						active: 'nextskill',
 						brooch: 'once',
