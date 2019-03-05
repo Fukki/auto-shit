@@ -31,6 +31,11 @@ module.exports = function autoShit(mod) {
 				config = getConfig();
 				cmd.message(`Auto-Shit: config has been reloaded.`);
 				break;
+			case 'check':
+			case 'debug':
+				cmd.message(`Brooch Id: ${data.brooch.id || data.broochinfo.id}`);
+				cmd.message(`Rootbeer Id: ${data.rootbeer || data.rootbeerinfo}`);
+				break;
 			default:
 				cmd.message(`Auto-Shit: wrong commands :v`);
 				break;
@@ -40,6 +45,7 @@ module.exports = function autoShit(mod) {
 	mod.hook('S_LOGIN', 12, e => {
 		data.gameId = e.gameId;
 		data.job = (e.templateId - 10101) % 100;
+		resetShit();
 	});
 	
 	mod.hook('C_PLAYER_LOCATION', 5, e => {
@@ -53,18 +59,12 @@ module.exports = function autoShit(mod) {
 	});
 	
 	mod.hook('S_RETURN_TO_LOBBY', 'raw', () => {
-		itemCd = {brooch: 0, rootbeer: 0};
-		data.usedRootbeer = false;
-		data.usedBrooch = false;
-		data.invUpdate = false;
-		data.inbuff = false;
-		data.rootbeer = null;
-		data.brooch = null;
+		resetShit();
 	});
 	
-	mod.hook('S_ABNORMALITY_BEGIN', 3, e => {
+	mod.hook('S_ABNORMALITY_BEGIN', 3, {order: Number.NEGATIVE_INFINITY}, e => {
 		let info = config.list[data.job];
-		if(config.enabled && info && e.target === data.gameId && e.id === info.buffid) {
+		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = true;
 			data.usedBrooch = true;
 			data.inbuff = true;
@@ -76,9 +76,9 @@ module.exports = function autoShit(mod) {
 		}
 	});
 	
-	mod.hook('S_ABNORMALITY_END', 1, e => {
+	mod.hook('S_ABNORMALITY_END', 1, {order: Number.NEGATIVE_INFINITY}, e => {
 		let info = config.list[data.job];
-		if(config.enabled && info && e.target === data.gameId && e.id === info.buffid) {
+		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = false;
 			data.usedBrooch = false;
 			data.inbuff = false;
@@ -92,12 +92,8 @@ module.exports = function autoShit(mod) {
  	});
 	
 	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
-		if (!data.invUpdate) {
-			data.invUpdate = true;
-			data.brooch = e.items.find(item => item.slot === 20);
-			data.rootbeer = e.items.find(item => config.rootbeer.includes(item.id));
-			data.invUpdate = false;
-		}
+		data.brooch = e.items.find(item => item.slot === 20);
+		data.rootbeer = e.items.find(item => config.rootbeer.includes(item.id));
 	});
 	
 	mod.hook('C_START_SKILL', 'raw', () => {checkShit();});
@@ -119,29 +115,47 @@ module.exports = function autoShit(mod) {
 		}
 	}
 	
+	function resetShit() {
+		let info = config.list[data.job];
+		if (info && info.broochinfo > 0)
+			data.broochinfo = {id: info.broochinfo}
+		else
+			data.broochinfo = null;
+		if (info && info.rootbeerinfo > 0)
+			data.rootbeerinfo = {id: info.rootbeerinfo}
+		else
+			data.rootbeerinfo = null;
+		itemCd = {brooch: 0, rootbeer: 0};
+		data.usedRootbeer = false;
+		data.usedBrooch = false;
+		data.inbuff = false;
+		data.rootbeer = null;
+		data.brooch = null;
+	}
+	
 	function startShit() {
-		if (!data.inbuff || mod.game.me.inBattleground) return;
+		if (!config.enabled || !data.inbuff || mod.game.me.inBattleground) return;
 		let info = config.list[data.job];
 		if (info) {
 			let now = Date.now();
-			if (data.brooch && now > itemCd.brooch)
+			if (data.usedBrooch && data.brooch && now > itemCd.brooch)
 				switch (info.brooch.toLowerCase()) {
 					case 'once':
-						useItem(data.brooch);
+						useItem(data.brooch || data.broochinfo);
 						data.usedBrooch = true;
 						break;
 					case 'inbuff':
-						useItem(data.brooch);
+						useItem(data.brooch || data.broochinfo);
 						break;
 				}
-			if (data.rootbeer && now > itemCd.rootbeer)
+			if (data.usedRootbeer && data.rootbeer && now > itemCd.rootbeer)
 				switch (info.rootbeer.toLowerCase()) {
 					case 'once':
-						useItem(data.rootbeer);
+						useItem(data.rootbeer || data.rootbeerinfo);
 						data.usedRootbeer = true;
 						break;
 					case 'inbuff':
-						useItem(data.rootbeer);
+						useItem(data.rootbeer || data.rootbeerinfo);
 						break;
 				}
 		}
