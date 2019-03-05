@@ -6,6 +6,7 @@ Auto use brooch and rootbeer when main skill or buff pop
 - shit reload //reload shit config
 - shit set brooch [item link]   //set brooch id *only that class
 - shit set rootbeer [item link]   //set rootbeer id *only that class
+![image](https://user-images.githubusercontent.com/26898177/53790099-aafead80-3f58-11e9-8207-7b1c8788e9e5.png)
 
 # Config.json
 ```
