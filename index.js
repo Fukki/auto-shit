@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports = function autoShit(mod) {
 	const cmd = mod.command || mod.require.command;
 	let data = [], itemCd = {brooch: 0, rootbeer: 0};
-	let config = getConfig();
+	let config = getConfig(), invUpdate = false;
 	mod.game.initialize(['me']);
 	
 	cmd.add('shit', (arg1, arg2, arg3) => {
@@ -109,6 +109,7 @@ module.exports = function autoShit(mod) {
 	
 	mod.hook('S_RETURN_TO_LOBBY', 'raw', () => {
 		itemCd = {brooch: 0, rootbeer: 0};
+		invUpdate = false;
 		data.usedRootbeer = false;
 		data.usedBrooch = false;
 		data.inbuff = false;
@@ -148,14 +149,26 @@ module.exports = function autoShit(mod) {
  	});
 	
 	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
-		if (data.broochinfo)
-			data.brooch = e.items.find(item => item.id === data.broochinfo.id);
-		else
-			data.brooch = e.items.find(item => item.slot === 20);
-		if (data.rootbeerinfo)
-			data.rootbeer = e.items.find(item => item.id === data.rootbeerinfo.id);
-		else
-			data.rootbeer = e.items.find(item => config.rootbeer.includes(item.id));
+		if (!invUpdate) {
+			invUpdate = true;
+			if (data.broochinfo)
+				data.brooch = e.items.find(item => item.id === data.broochinfo.id);
+			else
+				data.brooch = e.items.find(item => item.slot === 20);
+			if (data.rootbeerinfo)
+				data.invTmp = e.items.filter(item => item.id === data.rootbeerinfo.id);
+			else
+				data.invTmp = e.items.filter(item => config.rootbeer.includes(item.id))
+			if (data.invTmp.length > 0)
+				data.rootbeer = {
+					id: data.invTmp[0].id, 
+					amount: data.invTmp.reduce(
+						function (a, b) {
+							return a + b.amount;
+						}, 0)
+				}
+			invUpdate = false;
+		}
 	});
 	
 	mod.hook('C_START_SKILL', 'raw', () => {checkShit();});
