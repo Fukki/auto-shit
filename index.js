@@ -117,7 +117,7 @@ module.exports = function autoShit(mod) {
 		data.brooch = null;
 	});
 	
-	mod.hook('S_ABNORMALITY_BEGIN', 3, {order: Number.NEGATIVE_INFINITY}, e => {
+	mod.hook('S_ABNORMALITY_BEGIN', 3, e => {
 		let info = config.list[data.job];
 		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = true;
@@ -131,7 +131,7 @@ module.exports = function autoShit(mod) {
 		}
 	});
 	
-	mod.hook('S_ABNORMALITY_END', 1, {order: Number.NEGATIVE_INFINITY}, e => {
+	mod.hook('S_ABNORMALITY_END', 1, e => {
 		let info = config.list[data.job];
 		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = false;
@@ -140,7 +140,7 @@ module.exports = function autoShit(mod) {
 		}
 	});
 	
-	mod.hook('S_START_COOLTIME_ITEM', 1, {order: Number.NEGATIVE_INFINITY}, e => {
+	mod.hook('S_START_COOLTIME_ITEM', 1, e => {
  		if(!config.enabled) return;
  		if((data.brooch && e.item === data.brooch.id) || (data.broochinfo && e.item === data.broochinfo.id)) itemCd.brooch = Date.now() + e.cooldown * 1000;
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
