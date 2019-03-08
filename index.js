@@ -117,6 +117,13 @@ module.exports = function autoShit(mod) {
 		data.brooch = null;
 	});
 	
+	mod.hook('S_LOAD_TOPO', 'raw', () => {
+		data.invUpdate = false;
+		data.usedRootbeer = false;
+		data.usedBrooch = false;
+		data.inbuff = false;
+	});
+	
 	mod.hook('S_ABNORMALITY_BEGIN', 3, e => {
 		let info = config.list[data.job];
 		if(info && e.target === data.gameId && e.id === info.buffid) {

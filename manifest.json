@@ -1,6 +1,6 @@
 {
 	"files": {
-		"index.js": "e2cdf96cd7f191e346cbdc3399948f9fb56cab354b3e6949d8889ee2aad1d49a"
+		"index.js": "4726b686786ba016a8db79ec377d54b113333009d3b8f43b489a78dfdc3cb764"
 	},
 	"defs": {
 		"C_PLAYER_LOCATION": 5,
@@ -14,6 +14,7 @@
 		"S_ABNORMALITY_BEGIN": 3,
 		"S_ABNORMALITY_END": 1,
 		"S_INVEN": [17,18],
+		"S_LOAD_TOPO": "raw",
 		"S_LOGIN": 12,
 		"S_RETURN_TO_LOBBY": "raw",
 		"S_SPAWN_ME": 3,
