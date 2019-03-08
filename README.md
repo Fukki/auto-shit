@@ -26,7 +26,7 @@ Auto use brooch and rootbeer when main skill or buff pop
         },
 }
 ```
-**for brooch it will auto detect by system**</br>
-**sometimes auto detect has problem**</br>
-**just put item id by your self**</br>
-**you can find item id from: https://teralore.com**</br>
+# ISSUE
+**sometimes system can't auto detect</br>
+you must set it by your self easy</br>
+with command "shit set brooch [item link]"**</br>
