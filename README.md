@@ -1,4 +1,4 @@
-# nextgenShit
+# auto-shit
 Auto use brooch and rootbeer sync with your main buff or main skill</br>
 make you DPS Brust time better :D</br>
 # Commands
