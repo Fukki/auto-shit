@@ -1,5 +1,6 @@
 # nextgenShit
-Auto use brooch and rootbeer when main skill or buff pop
+Auto use brooch and rootbeer sync with your main buff or main skill</br>
+make you DPS Brust time better :D</br>
 # Commands
 - shit on   //enable this module
 - shit off  //disable this module
@@ -21,8 +22,8 @@ Auto use brooch and rootbeer when main skill or buff pop
             "broochinfo": 0,        #set your brooch id *if 0 = auto detect
             "buffid": 100811,       #buff for active
             "active": "nextskill",  #active type instance = after buff pop, nextskill = after use next skill
-            "brooch": "once",       #once = active only 1 time when buff pop
-            "rootbeer": "inbuff"    #inbuff = will used in buff when item cd finish
+            "brooch": "once",       #once = active 1 time only when buff/skill start and will skip to use if in cd
+            "rootbeer": "inbuff"    #inbuff = will use in buff/skill when item cd finish
         },
 }
 ```
