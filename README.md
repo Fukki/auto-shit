@@ -12,7 +12,7 @@ Auto use brooch and rootbeer when main skill or buff pop
 ```
 {
     "enabled": true,                #Enable and Disable this module
-    "rootbeer": [                   #set your rootbeer id
+    "rootbeer": [                   #set your rootbeer id this use for auto detect
         80081
     ],
     "list": {
