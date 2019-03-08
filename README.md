@@ -12,7 +12,7 @@ Auto use brooch and rootbeer when main skill or buff pop
 ```
 {
     "enabled": true,                #Enable and Disable this module
-    "rootbeer": [                   #set your rootbeer id this use for auto detect
+    "rootbeer": [                   #set your rootbeer id, this use for auto detect
         80081
     ],
     "list": {
@@ -27,6 +27,6 @@ Auto use brooch and rootbeer when main skill or buff pop
 }
 ```
 # ISSUE
-**sometimes system can't auto detect brooch
+**sometimes system can't auto detect brooch</br>
 you must set it by your self it easy to do</br>
 with command "shit set brooch [item link]"**</br>
