@@ -195,24 +195,28 @@ module.exports = function autoShit(mod) {
 		let info = config.list[data.job];
 		if (info) {
 			let now = Date.now();
-			if (data.usedBrooch && (data.brooch || data.broochinfo) && now > itemCd.brooch)
+			if (data.usedBrooch && (data.brooch || data.broochinfo))
 				switch (info.brooch.toLowerCase()) {
 					case 'once':
-						useItem(data.brooch || data.broochinfo);
+						if (now > itemCd.brooch)
+							useItem(data.brooch || data.broochinfo);
 						data.usedBrooch = true;
 						break;
 					case 'inbuff':
-						useItem(data.brooch || data.broochinfo);
+						if (now > itemCd.brooch)
+							useItem(data.brooch || data.broochinfo);
 						break;
 				}
-			if (data.usedRootbeer && data.rootbeer && now > itemCd.rootbeer)
+			if (data.usedRootbeer && data.rootbeer)
 				switch (info.rootbeer.toLowerCase()) {
 					case 'once':
-						useItem(data.rootbeer);
+						if (now > itemCd.rootbeer)
+							useItem(data.rootbeer);
 						data.usedRootbeer = true;
 						break;
 					case 'inbuff':
-						useItem(data.rootbeer);
+						if (now > itemCd.rootbeer)
+							useItem(data.rootbeer);
 						break;
 				}
 		}
