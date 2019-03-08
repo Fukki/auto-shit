@@ -27,6 +27,6 @@ Auto use brooch and rootbeer when main skill or buff pop
 }
 ```
 # ISSUE
-**sometimes system can't auto detect</br>
-you must set it by your self easy</br>
+**sometimes system can't auto detect brooch
+you must set it by your self it easy to do</br>
 with command "shit set brooch [item link]"**</br>
