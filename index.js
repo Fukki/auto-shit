@@ -205,7 +205,7 @@ module.exports = function autoShit(mod) {
 					case 'once':
 						if (now > itemCd.brooch)
 							useItem(data.brooch || data.broochinfo);
-						data.usedBrooch = true;
+						data.usedBrooch = false;
 						break;
 					case 'inbuff':
 						if (now > itemCd.brooch)
@@ -217,7 +217,7 @@ module.exports = function autoShit(mod) {
 					case 'once':
 						if (now > itemCd.rootbeer)
 							useItem(data.rootbeer);
-						data.usedRootbeer = true;
+						data.usedRootbeer = false;
 						break;
 					case 'inbuff':
 						if (now > itemCd.rootbeer)
