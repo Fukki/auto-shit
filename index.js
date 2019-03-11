@@ -302,7 +302,7 @@ module.exports = function autoShit(mod) {
 					5: {
 						rootbeerinfo: 80081,
 						broochinfo: 0,
-						buffid: 602107, //602107, 602108, 602101
+						buffid: 602108,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
@@ -318,7 +318,7 @@ module.exports = function autoShit(mod) {
 					9: {
 						rootbeerinfo: 80081,
 						broochinfo: 0,
-						buffid: 10152342, //10152342, 10152340, 10152345
+						buffid: 10152342,
 						active: 'nextskill',
 						brooch: 'once',
 						rootbeer: 'inbuff'
