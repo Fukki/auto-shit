@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 module.exports = function autoShit(mod) {
 	const cmd = mod.command || mod.require.command;
+	const hookorder = {order: Number.NEGATIVE_INFINITY};
 	let data = [], itemCd = {brooch: 0, rootbeer: 0};
 	let config = getConfig();
 	mod.game.initialize(['me']);
@@ -124,7 +125,7 @@ module.exports = function autoShit(mod) {
 		data.inbuff = false;
 	});
 	
-	mod.hook('S_ABNORMALITY_BEGIN', 3, e => {
+	mod.hook('S_ABNORMALITY_BEGIN', 3, hookorder, e => {
 		let info = config.list[data.job];
 		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = true;
@@ -138,7 +139,7 @@ module.exports = function autoShit(mod) {
 		}
 	});
 	
-	mod.hook('S_ABNORMALITY_END', 1, e => {
+	mod.hook('S_ABNORMALITY_END', 1, hookorder, e => {
 		let info = config.list[data.job];
 		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = false;
@@ -147,7 +148,7 @@ module.exports = function autoShit(mod) {
 		}
 	});
 	
-	mod.hook('S_START_COOLTIME_ITEM', 1, e => {
+	mod.hook('S_START_COOLTIME_ITEM', 1, hookorder, e => {
  		if(!config.enabled) return;
  		if((data.brooch && e.item === data.brooch.id) || (data.broochinfo && e.item === data.broochinfo.id)) itemCd.brooch = Date.now() + e.cooldown * 1000;
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
