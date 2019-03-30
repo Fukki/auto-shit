@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 module.exports = function autoShit(mod) {
 	const cmd = mod.command || mod.require.command;
-	const hookorder = {order: Number.NEGATIVE_INFINITY};
+	const hookorder = {order: -100000};
 	let data = [], itemCd = {brooch: 0, rootbeer: 0};
 	let config = getConfig();
 	mod.game.initialize(['me']);
@@ -154,7 +154,7 @@ module.exports = function autoShit(mod) {
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
 	
-	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
+	mod.hook('S_INVEN', 18, e => {
 		if (!data.invUpdate) {
 			data.invUpdate = true;
 			if (data.broochinfo)
