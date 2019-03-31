@@ -154,7 +154,7 @@ module.exports = function autoShit(mod) {
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
 	
-	mod.hook('S_INVEN', 18, e => {
+	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
 		if (!data.invUpdate) {
 			data.invUpdate = true;
 			if (data.broochinfo)
