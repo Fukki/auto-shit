@@ -84,7 +84,7 @@ module.exports = function autoShit(mod) {
 		}
 	});
 	
-	mod.hook('S_LOGIN', 13, e => {
+	mod.hook('S_LOGIN', mod.majorPatchVersion >= 81 ? 13 : 12, e => {
 		data.gameId = e.gameId;
 		data.job = (e.templateId - 10101) % 100;
 		let info = config.list[data.job];
