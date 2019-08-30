@@ -85,7 +85,7 @@ module.exports = function autoShit(mod) {
 	});
 	
 	//mod.majorPatchVersion
-	mod.hook('S_LOGIN', 19, e => {
+	mod.hook('S_LOGIN', 13, e => {
 		data.gameId = e.gameId;
 		data.job = (e.templateId - 10101) % 100;
 		let info = config.list[data.job];
@@ -155,7 +155,7 @@ module.exports = function autoShit(mod) {
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
 	
-	mod.hook('S_INVEN', mod.majorPatchVersion > 79 ? 18 : 17, e => {
+	mod.hook('S_INVEN', 19, e => {
 		if (!data.invUpdate) {
 			data.invUpdate = true;
 			if (data.broochinfo)
