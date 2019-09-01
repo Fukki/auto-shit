@@ -154,29 +154,53 @@ module.exports = function autoShit(mod) {
  		if((data.brooch && e.item === data.brooch.id) || (data.broochinfo && e.item === data.broochinfo.id)) itemCd.brooch = Date.now() + e.cooldown * 1000;
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
-	
-	mod.hook('S_INVEN', 19, e => {
-		if (!data.invUpdate) {
-			data.invUpdate = true;
-			if (data.broochinfo)
-				data.brooch = e.items.find(item => item.id === data.broochinfo.id);
-			else
-				data.brooch = e.items.find(item => item.slot === 20);
-			if (data.rootbeerinfo)
-				data.invTmp = e.items.filter(item => item.id === data.rootbeerinfo.id);
-			else
-				data.invTmp = e.items.filter(item => config.rootbeer.includes(item.id))
-			if (data.invTmp.length > 0)
-				data.rootbeer = {
-					id: data.invTmp[0].id, 
-					amount: data.invTmp.reduce(
-						function (a, b) {
-							return a + b.amount;
-						}, 0)
-				}
-			data.invUpdate = false;
-		}
-	});
+	if (mod.majorPatchVersion => 85) {
+		mod.hook('S_ITEMLIST', 1, e => {
+			if (!data.invUpdate && e.gameId === mod.game.me.gameId) {
+				data.invUpdate = true;
+				if (data.broochinfo)
+					data.brooch = e.items.find(item => item.id === data.broochinfo.id);
+				else
+					data.brooch = e.items.find(item => item.slot === 20);
+				if (data.rootbeerinfo)
+					data.invTmp = e.items.filter(item => item.id === data.rootbeerinfo.id);
+				else
+					data.invTmp = e.items.filter(item => config.rootbeer.includes(item.id))
+				if (data.invTmp.length > 0)
+					data.rootbeer = {
+						id: data.invTmp[0].id, 
+						amount: data.invTmp.reduce(
+							function (a, b) {
+								return a + b.amount;
+							}, 0)
+					}
+				data.invUpdate = false;
+			}
+		});
+	} else {
+		mod.hook('S_INVEN', 19, e => {
+			if (!data.invUpdate && e.gameId === mod.game.me.gameId) {
+				data.invUpdate = true;
+				if (data.broochinfo)
+					data.brooch = e.items.find(item => item.id === data.broochinfo.id);
+				else
+					data.brooch = e.items.find(item => item.slot === 20);
+				if (data.rootbeerinfo)
+					data.invTmp = e.items.filter(item => item.id === data.rootbeerinfo.id);
+				else
+					data.invTmp = e.items.filter(item => config.rootbeer.includes(item.id))
+				if (data.invTmp.length > 0)
+					data.rootbeer = {
+						id: data.invTmp[0].id, 
+						amount: data.invTmp.reduce(
+							function (a, b) {
+								return a + b.amount;
+							}, 0)
+					}
+				data.invUpdate = false;
+			}
+		});
+	}
 	
 	mod.hook('C_START_SKILL', 'raw', () => {checkShit();});
 	mod.hook('C_START_TARGETED_SKILL', 'raw', () => {checkShit();});
