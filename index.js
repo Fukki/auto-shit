@@ -154,7 +154,8 @@ module.exports = function autoShit(mod) {
  		if((data.brooch && e.item === data.brooch.id) || (data.broochinfo && e.item === data.broochinfo.id)) itemCd.brooch = Date.now() + e.cooldown * 1000;
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
-	if (mod.majorPatchVersion => 85) {
+	
+	if (mod.majorPatchVersion >= 85) {
 		mod.hook('S_ITEMLIST', 1, e => {
 			if (!data.invUpdate && e.gameId === mod.game.me.gameId) {
 				data.invUpdate = true;
