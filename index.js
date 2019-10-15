@@ -85,7 +85,7 @@ module.exports = function autoShit(mod) {
 	});
 	
 	//mod.majorPatchVersion
-	mod.hook('S_LOGIN', 13, e => {
+	mod.hook('S_LOGIN', mod.majorPatchVersion > 85 ? 14 : 13, e => {
 		data.gameId = e.gameId;
 		data.job = (e.templateId - 10101) % 100;
 		let info = config.list[data.job];
@@ -126,7 +126,7 @@ module.exports = function autoShit(mod) {
 		data.inbuff = false;
 	});
 	
-	mod.hook('S_ABNORMALITY_BEGIN', 3, hookorder, e => {
+	mod.hook('S_ABNORMALITY_BEGIN', mod.majorPatchVersion > 85 ? 4 : 3, hookorder, e => {
 		let info = config.list[data.job];
 		if(info && e.target === data.gameId && e.id === info.buffid) {
 			data.usedRootbeer = true;
