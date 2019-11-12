@@ -4,7 +4,7 @@ module.exports = function autoShit(mod) {
 	const cmd = mod.command || mod.require.command;
 	const hookorder = {order: -100000};
 	let data = [], itemCd = {brooch: 0, rootbeer: 0};
-	let config = getConfig();
+	let config = getConfig(), packet_version = 0;
 	mod.game.initialize(['me']);
 	
 	cmd.add('shit', (arg1, arg2, arg3) => {
@@ -155,8 +155,19 @@ module.exports = function autoShit(mod) {
  		else if(data.rootbeer && e.item === data.rootbeer.id) itemCd.rootbeer = Date.now() + e.cooldown * 1000;
  	});
 	
+	switch(mod.majorPatchVersion) {
+		case 85:
+			packet_version = 1;
+			break;
+		case 86:
+			packet_version = 2;
+			break;
+		default:
+			packet_version = 3;
+			break;
+	}
 	
-	mod.hook('S_ITEMLIST', mod.majorPatchVersion >= 86 ? 2 : 1, e => {
+	mod.hook('S_ITEMLIST', packet_version, e => {
 		if (!data.invUpdate && e.gameId === mod.game.me.gameId) {
 			data.invUpdate = true;
 			if (data.broochinfo)

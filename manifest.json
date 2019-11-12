@@ -1,6 +1,6 @@
 {
 	"files": {
-		"index.js": "a5c36c8f24d4b475ac5658188942376559d3bd47e6c76fc77726607767184f8e"
+		"index.js": "3e8a95dafdca8276fc5e2f3b19d405ecac4f70736c2dae3d32113dd0aa253834"
 	},
 	"defs": {
 		"C_PLAYER_LOCATION": 5,
@@ -13,7 +13,7 @@
 		"C_USE_ITEM": 3,
 		"S_ABNORMALITY_BEGIN": [3,4],
 		"S_ABNORMALITY_END": 1,
-		"S_ITEMLIST": [1,2],
+		"S_ITEMLIST": 1,
 		"S_LOAD_TOPO": "raw",
 		"S_LOGIN": [13,14],
 		"S_RETURN_TO_LOBBY": "raw",
